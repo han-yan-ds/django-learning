@@ -3,4 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(req):
-    return HttpResponse("HELLO WORLD")
+    return HttpResponse("BABY ONE MORE TIME")
+
+def demoUrlMapping(req):
+    return HttpResponse("Includes() works!!")
