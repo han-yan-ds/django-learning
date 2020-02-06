@@ -1,13 +1,9 @@
-"""
-This file is a command line utility that allows me to interact with this Django project
-"""
-
 #!/usr/bin/env python
 import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "djangolearning.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ProTwo.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
