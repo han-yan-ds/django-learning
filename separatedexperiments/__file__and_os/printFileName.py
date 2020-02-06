@@ -9,3 +9,6 @@ print(__file__)
 
 print("Printing full relative path name now (WITHOUT filename)")
 print(os.path.dirname(__file__))
+
+print("Printing the absolute path now (WITHOUT filename)")
+print(os.path.abspath(__file__))
