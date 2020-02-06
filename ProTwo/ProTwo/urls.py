@@ -1,4 +1,4 @@
-"""djangolearning URL Configuration
+"""ProTwo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -13,13 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
-from firstapp import views
+from SecondApp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
-    url(r'^firstapp/', include('firstapp.urls')) 
-        #include() includes urlpatterns from other files
+    url(r'^help/', views.helpPage),
+    url(r'^image/', views.imageDemo),
+    url(r'^$', views.index)
 ]
