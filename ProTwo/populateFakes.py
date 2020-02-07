@@ -1,10 +1,15 @@
+"""
+See Faker's docs here:
+https://faker.readthedocs.io/en/master/
+"""
+
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProTwo.settings')
 import django
 django.setup()
 
 # Fake-ing scripts
-from SecondApp.models import Topic, Webpage, AccessRecord
+from SecondApp.models import Topic, Webpage, AccessRecord, User
 import random
 import faker
 
@@ -18,7 +23,7 @@ def add_topic():
     return t
 
 
-def populate(N=5):
+def populateWebPages(N=5):
     for entry in range(N):
         topic = add_topic()
 
@@ -30,6 +35,16 @@ def populate(N=5):
         webPage = Webpage.objects.get_or_create(topic=topic, name=fakeName, url=fakeUrl)[0] # Notice topic is a foreign key, so I passed in the actual object
         accessRecord = AccessRecord.objects.get_or_create(name=webPage, date=fakeDate)[0] # Notice webPage is a foreign key, so I passed in the actual object
 
+
+def populateUsers(N=5):
+    for entry in range(N):
+        fakeFname = generator.first_name()
+        fakeLname = generator.last_name()
+        fakeEmail = "%s.%s@gmail.com" % (fakeFname, fakeLname)
+
+        user = User.objects.get_or_create(fname=fakeFname, lname=fakeLname, email=fakeEmail)[0]
+
+
 if __name__ == "__main__":
     print("populating script!")
-    populate()
+    populateUsers()

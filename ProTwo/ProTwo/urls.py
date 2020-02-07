@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^help/', views.helpPage),
     url(r'^image/', views.imageDemo),
     url(r'^$', views.index, name="index"),
+    url(r'^users/', views.users),
 ]
