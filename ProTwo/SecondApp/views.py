@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from SecondApp.models import Topic, Webpage, AccessRecord
 # Create your views here.
 
 def index(req):
+    webpagesList = AccessRecord.objects.order_by('date')
     templateDict = {
-        'help_link_text': 'Example of Rendering Text Template',
-        'image_link_text': 'Example of Rendering Image Template',
+        'access_records': webpagesList
     }
+    # templateDict = {
+    #     'help_link_text': 'Example of Rendering Text Template',
+    #     'image_link_text': 'Example of Rendering Image Template',
+    # }
     return render(req, 'SecondApp/index.html', context=templateDict)
 
 
