@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h2>Listing Users in Database</h2>
+    {% if users %}
+      <table>
+        {% for user in users %}
+          <tr>
+            <td>{{user.lname}}</td><td>{{user.fname}}</td><td>{{user.email}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No users available to display</p>
+    {% endif %}
+  </body>
+</html>
