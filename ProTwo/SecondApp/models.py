@@ -1,3 +1,16 @@
+"""
+It may feel weird that these classes have no constructor (no __init__ function).  For good REASON. 
+
+An object is created by calling ClassName(field1=value, field2=value, ....),
+AND, the SQL INSERT command isn't complete until .save() is called
+
+Eg:
+>>> from SecondApp.models import Topic
+>>> t = Topic(topic_name="Sports")
+>>> t.save()
+"""
+
+
 from django.db import models
 
 # Create your models here.
