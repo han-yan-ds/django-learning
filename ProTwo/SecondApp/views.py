@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from SecondApp.models import Topic, Webpage, AccessRecord
+from SecondApp.models import Topic, Webpage, AccessRecord, User
 # Create your views here.
 
 def index(req):
@@ -21,8 +21,15 @@ def helpPage(req):
     }
     return render(req, 'SecondApp/help.html', context=templateDict)
 
+
 def imageDemo(req):
     templateDict = {
         'template_exercise':  "Demo-ing Image",
     }
     return render(req, 'SecondApp/imageDemo.html', context=templateDict)
+
+
+def users(req):
+    userList = User.objects.order_by('lname')
+    userDict = {'users': userList}
+    return render(req, 'SecondApp/users.html', context=userDict)
