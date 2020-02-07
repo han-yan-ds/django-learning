@@ -36,3 +36,9 @@ class AccessRecord(models.Model):
 
     def __repr__(self):
         return str(self.date)
+
+
+class User(models.Model):
+    fname = models.CharField(max_length=20)
+    lname = models.CharField(max_length=64)
+    email = models.EmailField()
