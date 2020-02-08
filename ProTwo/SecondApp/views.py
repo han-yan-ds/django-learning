@@ -12,7 +12,7 @@ def index(req):
     return render(req, 'SecondApp/index.html', context=templateDict)
 
 
-def form_name_view(req):
+def formPage(req):
     formInstance = FormModel()
     templateDict = {
         'form': formInstance
