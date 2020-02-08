@@ -17,6 +17,10 @@ def form_name_view(req):
     templateDict = {
         'form': formInstance
     }
+    if req.method == "POST":
+        formInstance = FormModel(req.POST) # 
+        if formInstance.is_valid():
+            print(formInstance.cleaned_data) # DEMO: Getting data from form upon submit
     return render(req, 'SecondApp/form.html', context=templateDict)
 
 
