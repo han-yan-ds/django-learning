@@ -18,7 +18,7 @@ def form_name_view(req):
         'form': formInstance
     }
     if req.method == "POST":
-        formInstance = FormModel(req.POST) # 
+        formInstance = FormModel(req.POST) # This step is required for the formInstance to have a .cleaned_data property
         if formInstance.is_valid():
             print(formInstance.cleaned_data) # DEMO: Getting data from form upon submit
     return render(req, 'SecondApp/form.html', context=templateDict)
