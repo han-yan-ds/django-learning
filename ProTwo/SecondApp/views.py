@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from SecondApp.models import Topic, Webpage, AccessRecord, User
+from SecondApp.forms import FormModel
 # Create your views here.
 
 def index(req):
@@ -8,11 +9,15 @@ def index(req):
     templateDict = {
         'access_records': webpagesList
     }
-    # templateDict = {
-    #     'help_link_text': 'Example of Rendering Text Template',
-    #     'image_link_text': 'Example of Rendering Image Template',
-    # }
     return render(req, 'SecondApp/index.html', context=templateDict)
+
+
+def form_name_view(req):
+    formInstance = FormModel()
+    templateDict = {
+        'form': formInstance
+    }
+    return render(req, 'SecondApp/form.html', context=templateDict)
 
 
 def helpPage(req):
