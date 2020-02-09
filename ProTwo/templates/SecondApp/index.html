@@ -5,28 +5,14 @@
 
   </head>
   <body>
-    <h1>Displaying stuff from Database</h1>
-    <div>
-
-      {% if access_records %}
-        <table>
-          <thead>
-            <th>Site Name</th>
-            <th>Date Created</th>
-          </thead>
-          
-          {% for record in access_records %}
-          <tr>
-            <td>{{ record.name }}</td><td>{{ record.date }}</td>
-          </tr>
-          {% endfor %}
-        </table>
-      
-        {% else %}
-          <p>NO ACCESS RECORDS FOUND</p>
-          
-      {% endif %}
-          
-    </div>
+    <p>
+      /users/ :  Demos retrieving stuff from database and rendering it
+    </p>
+    <p>
+      /forms/user/ :  Demos rendering a Form from a Model + adding stuff into database
+    </p>
+    <p>
+      /image/ :  Demos rendering an image (static file)
+    </p>
   </body>
 </html>

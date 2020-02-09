@@ -12,27 +12,6 @@ def index(req):
     return render(req, 'SecondApp/index.html', context=templateDict)
 
 
-def userFormPage(req):
-    formInstance = UserForm()
-    templateDict = {
-        'form': formInstance
-    }
-    if req.method == "POST":
-        formInstance = UserForm(req.POST)
-        if formInstance.is_valid():
-            # do stuff with form data
-            formData = formInstance.cleaned_data
-            User.objects.get_or_create(fname=formData['fname'], lname=formData['lname'], email=formData['email'])
-    return render(req, 'SecondApp/form.html', context=templateDict)
-
-
-def helpPage(req):
-    templateDict = {
-        'template_exercise':  "Help Page Text",
-    }
-    return render(req, 'SecondApp/help.html', context=templateDict)
-
-
 def imageDemo(req):
     templateDict = {
         'template_exercise':  "Demo-ing Image",
@@ -44,3 +23,18 @@ def users(req):
     userList = User.objects.order_by('lname')
     userDict = {'users': userList}
     return render(req, 'SecondApp/users.html', context=userDict)
+
+
+def userFormPage(req):
+    formInstance = UserForm()
+    templateDict = {
+        'form': formInstance
+    }
+    if req.method == "POST":
+        formInstance = UserForm(req.POST)
+        if formInstance.is_valid():
+            # do stuff with form data
+            formData = formInstance.cleaned_data
+            User.objects.get_or_create(fname=formData['fname'], lname=formData['lname'], email=formData['email'])
+    return render(req, 'SecondApp/userForm.html', context=templateDict)
+
