@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from SecondApp.models import Topic, Webpage, AccessRecord, User
-from SecondApp.forms import FormModel
+from SecondApp.forms import UserForm
 # Create your views here.
 
 def index(req):
@@ -12,15 +12,17 @@ def index(req):
     return render(req, 'SecondApp/index.html', context=templateDict)
 
 
-def formPage(req):
-    formInstance = FormModel()
+def userFormPage(req):
+    formInstance = UserForm()
     templateDict = {
         'form': formInstance
     }
     if req.method == "POST":
-        formInstance = FormModel(req.POST) # This step is required for the formInstance to have a .cleaned_data property
+        formInstance = UserForm(req.POST)
         if formInstance.is_valid():
-            print(formInstance.cleaned_data) # DEMO: Getting data from form upon submit
+            # do stuff with form data
+            formData = formInstance.cleaned_data
+            User.objects.get_or_create(fname=formData['fname'], lname=formData['lname'], email=formData['email'])
     return render(req, 'SecondApp/form.html', context=templateDict)
 
 
