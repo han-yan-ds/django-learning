@@ -17,7 +17,7 @@ def exampleCustomValidator(value):
         raise forms.ValidationError("Must be a Gmail email address")
 
 class FormModel(forms.Form):
-    name = forms.CharField()
+    name = forms.CharField(label="Full Name")
     email = forms.EmailField(validators=[exampleCustomValidator])
     text = forms.CharField()
     botCatcher = forms.CharField(widget=forms.HiddenInput, required=False, validators=[validators.MaxLengthValidator(0)]) # this catches a bot because a bot will fill out this form, but a user won't (it's hidden)
