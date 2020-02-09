@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from SecondApp.models import Topic, Webpage, AccessRecord, User
-from SecondApp.forms import FormModel
+from SecondApp.forms import UserForm
 # Create your views here.
 
 def index(req):
@@ -10,25 +10,6 @@ def index(req):
         'access_records': webpagesList
     }
     return render(req, 'SecondApp/index.html', context=templateDict)
-
-
-def formPage(req):
-    formInstance = FormModel()
-    templateDict = {
-        'form': formInstance
-    }
-    if req.method == "POST":
-        formInstance = FormModel(req.POST) # This step is required for the formInstance to have a .cleaned_data property
-        if formInstance.is_valid():
-            print(formInstance.cleaned_data) # DEMO: Getting data from form upon submit
-    return render(req, 'SecondApp/form.html', context=templateDict)
-
-
-def helpPage(req):
-    templateDict = {
-        'template_exercise':  "Help Page Text",
-    }
-    return render(req, 'SecondApp/help.html', context=templateDict)
 
 
 def imageDemo(req):
@@ -42,3 +23,18 @@ def users(req):
     userList = User.objects.order_by('lname')
     userDict = {'users': userList}
     return render(req, 'SecondApp/users.html', context=userDict)
+
+
+def userFormPage(req):
+    formInstance = UserForm()
+    templateDict = {
+        'form': formInstance
+    }
+    if req.method == "POST":
+        formInstance = UserForm(req.POST)
+        if formInstance.is_valid():
+            # do stuff with form data
+            formData = formInstance.cleaned_data
+            User.objects.get_or_create(fname=formData['fname'], lname=formData['lname'], email=formData['email'])
+    return render(req, 'SecondApp/userForm.html', context=templateDict)
+
