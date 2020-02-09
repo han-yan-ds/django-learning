@@ -1,4 +1,6 @@
 """
+Each DB table is a "Django model CLASS", and each table field is a property of this class
+
 It may feel weird that these classes have no constructor (no __init__ function).  For good REASON. 
 
 An object is created by calling ClassName(field1=value, field2=value, ....),
