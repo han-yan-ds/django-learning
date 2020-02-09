@@ -1,3 +1,13 @@
+"""
+Forms are similar to models in class construction... each class property is now a form-field
+
+We can make good use of arguments in the form-field constructors.  Eg: required=false
+
+We can also make REALLY good use of Django's validators.  
+https://docs.djangoproject.com/en/3.0/ref/validators/
+"""
+
+
 from django import forms
 from django.core import validators
 
