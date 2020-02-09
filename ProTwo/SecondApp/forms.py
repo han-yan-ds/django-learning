@@ -17,14 +17,16 @@ def exampleCustomValidator(value):
         raise forms.ValidationError("Must be a Gmail email address")
 
 class FormModel(forms.Form):
-    name = forms.CharField(label="Full Name")
+    name = forms.CharField(label="Full Name") # label is the HTML-displayed name of the field... default is capitalized fieldname
     email = forms.EmailField(validators=[exampleCustomValidator])
+    verifyEmail = forms.EmailField()
     text = forms.CharField()
     botCatcher = forms.CharField(widget=forms.HiddenInput, required=False, validators=[validators.MaxLengthValidator(0)]) # this catches a bot because a bot will fill out this form, but a user won't (it's hidden)
 
-    # def clean_botCatcher(self): # must be named clean_fieldName... look up "Django clean_fields"
-    #     botCatcherText = self.cleaned_data['botCatcher']
-    #     if len(botCatcherText) > 0:
-    #         raise forms.ValidationError("GOTCHA BOT!")
-    #     return botCatcherText
+    def clean(self):
+        allCleanData = super().clean() # this is a dictionary that has all fields with their values
+        email = allCleanData['email']
+        verifyEmail = allCleanData['verifyEmail']
+        if (email != verifyEmail):
+            raise forms.ValidationError("Email addresses must match!")
         
