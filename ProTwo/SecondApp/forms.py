@@ -10,12 +10,12 @@ https://docs.djangoproject.com/en/3.0/ref/validators/
 
 from django import forms
 # from django.core import validators
-from SecondApp.models import Topic
+from SecondApp.models import User
 
 class FormModel(forms.ModelForm):
     class Meta:
-        model = Topic
-        fields = "__all__"
+        model = User # Meta's model property is referencing the model Class (Topic)
+        fields = "__all__" # Meta's fields property is referencing a Special Keyword ("__all__")
 
 
 # def exampleCustomValidator(value):
