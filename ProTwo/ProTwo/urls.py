@@ -19,8 +19,8 @@ from SecondApp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^image/', views.imageDemo),
+    url(r'^image/', views.imageDemo, name="imageDemo"),
     url(r'^$', views.index, name="index"),
-    url(r'^users/', views.users),
-    url(r'^forms/user/', views.userFormPage),
+    url(r'^users/', views.users, name="users"),
+    url(r'^forms/user/', views.userFormPage, name="usersForm"),
 ]
