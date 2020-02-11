@@ -34,8 +34,7 @@ def userFormPage(req):
         formInstance = UserForm(req.POST)
         if formInstance.is_valid():
             # do stuff with form data
-            # formData = formInstance.cleaned_data
-            # User.objects.get_or_create(fname=formData['fname'], lname=formData['lname'], email=formData['email'])
             formInstance.save(commit=True)
+            return users(req) # return to users list
     return render(req, 'SecondApp/userForm.html', context=templateDict)
 
