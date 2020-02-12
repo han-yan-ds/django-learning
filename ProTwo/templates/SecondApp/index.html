@@ -6,7 +6,9 @@
   </head>
   <body>
     <p>
-      <a href={% url 'users' %} {# url is a keyword, the string after is the NAME specified in urlpatterns for each URL#}>
+      <a href={% url 'users' %}>
+        <!-- url is a keyword, the string after is the NAME specified in 
+          urlpatterns for each URL -->
         /users/:  Demos retrieving stuff from database and rendering it
       </a>  
     </p>
@@ -18,6 +20,13 @@
     <p>
       <a href={% url 'imageDemo' %}>
         /image/ :  Demos rendering an image (static file)
+      </a>
+    </p>
+    <p>
+      <a href={% url 'admin:index' %}>
+        <!-- Here I *didn't name the admin endpoint in urls.py, but this still works
+        because the "admin" is an app whose OWN urls.py has an endpoint named "index" -->
+        /admin/:  Admin Page
       </a>
     </p>
   </body>
