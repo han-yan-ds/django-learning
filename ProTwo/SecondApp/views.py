@@ -5,11 +5,7 @@ from SecondApp.forms import UserForm
 # Create your views here.
 
 def index(req):
-    webpagesList = AccessRecord.objects.order_by('date')
-    templateDict = {
-        'access_records': webpagesList
-    }
-    return render(req, 'SecondApp/index.html', context=templateDict)
+    return render(req, 'SecondApp/index.html', context={})
 
 
 def imageDemo(req):
