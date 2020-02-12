@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-<html>
-  <head>
 
-  </head>
-  <body>
-    <div>
-      <em>{{template_exercise}}</em>
-    </div>
-    <img src="{% static "SecondApp/images/minesweeper.gif" %}"/>
-  </body>
-</html>
+{% extends "SecondApp/base.html" %}
+{% load staticfiles %}
+{% block templateInheritanceExample %}
+
+  <div>
+    <em>{{template_exercise}}</em>
+  </div>
+  <img src="{% static "SecondApp/images/minesweeper.gif" %}"/>
+  
+{% endblock %}
