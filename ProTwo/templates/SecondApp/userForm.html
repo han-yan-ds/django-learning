@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 
-<html>
-  <head>
+{% extends "SecondApp/base.html" %}
+{% block templateInheritanceExample %}
 
-  </head>
-  <body>
-    <div>
-      <form method="post">
-        {{form.as_p}}
-        {% csrf_token %}
-        <input type="submit"/>
-      </form>
-    </div>
-  </body>
-</html>
+  <div>
+    <form method="post">
+      {{form.as_p}}
+      {% csrf_token %}
+      <input type="submit"/>
+    </form>
+  </div>
+  
+{% endblock %}
