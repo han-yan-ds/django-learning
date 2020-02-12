@@ -5,6 +5,7 @@
 
   </head>
   <body>
+
     <p>
       <a href={% url 'users' %}>
         <!-- url is a keyword, the string after is the NAME specified in 
@@ -12,16 +13,19 @@
         {% url 'users' %}:  Demos retrieving stuff from database and rendering it
       </a>  
     </p>
+
     <p>
       <a href={% url 'usersForm' %}>
         {% url 'usersForm' %}:  Demos rendering a Form from a Model + adding stuff into database
       </a>
     </p>
+
     <p>
       <a href={% url 'imageDemo' %}>
         {% url 'imageDemo' %}:  Demos rendering an image (static file)
       </a>
     </p>
+
     <p>
       <a href={% url 'admin:index' %}>
         <!-- Here I *didn't name the admin endpoint in urls.py, but this still works
@@ -29,5 +33,6 @@
         {% url 'admin:index' %}:  Admin Page
       </a>
     </p>
+    
   </body>
 </html>
