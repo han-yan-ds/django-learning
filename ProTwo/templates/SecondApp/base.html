@@ -11,10 +11,14 @@
           This is an example of a template that's inherited by other templates
         </div>
         <ul class="nav justify-content-center">
-          <li class="nav-item"><a class="nav-link">Home<a/></li>
-          <li class="nav-item"><a class="nav-link">Users<a/></li>
-          <li class="nav-item"><a class="nav-link">Form<a/></li>
-          <li class="nav-item"><a class="nav-link">Admin<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "index" %}>Home<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "users" %}>Users<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "usersForm" %}>Form<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "admin:index" %}>Admin<a/></li>
         </ul>
       </div>
     </nav>
