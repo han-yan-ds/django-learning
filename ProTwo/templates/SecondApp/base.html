@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav justify-content-center">
+          This is an example of a template that's inherited by other templates
+        </div>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href={% url "index" %}>Home<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "users" %}>Users<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "usersForm" %}>Form<a/></li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "admin:index" %}>Admin<a/></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block templateInheritanceExample %}
+      <!-- Anything that extends this template will get their HTML inserted HERE -->
+      {% endblock %}
+    </div>
+
+  </body>
+</html>
