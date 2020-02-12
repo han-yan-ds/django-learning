@@ -6,13 +6,19 @@
   </head>
   <body>
     <p>
-      /users/ :  Demos retrieving stuff from database and rendering it
+      <a href={% url 'users' %} {# url is a keyword, the string after is the NAME specified in urlpatterns for each URL#}>
+        /users/:  Demos retrieving stuff from database and rendering it
+      </a>  
     </p>
     <p>
-      /forms/user/ :  Demos rendering a Form from a Model + adding stuff into database
+      <a href={% url 'usersForm' %}>
+        /forms/user/ :  Demos rendering a Form from a Model + adding stuff into database
+      </a>
     </p>
     <p>
-      /image/ :  Demos rendering an image (static file)
+      <a href={% url 'imageDemo' %}>
+        /image/ :  Demos rendering an image (static file)
+      </a>
     </p>
   </body>
 </html>
